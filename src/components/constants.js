@@ -1,0 +1,1 @@
+export const BG_IMG="https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?w=996&t=st=1697702687~exp=1697703287~hmac=055d8adc98614000615949036fd591f2fba9d0efd388394941c6f1bdb5fe8335"
