@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link,  useNavigate } from 'react-router-dom'
 import Logo from '../utils/logo.png'
 import { v4 as uuidv4 } from 'uuid';
+import toast from 'react-hot-toast';
 
 
 const Home = () => {
@@ -11,7 +12,6 @@ const Home = () => {
   const [username, setUsername]=useState('')
   const createNewRoom=()=>{
     const id=uuidv4()
-    console.log(id)
     setNewRoomID(id)
   }
 
@@ -19,6 +19,7 @@ const Home = () => {
   const handleJoin=()=>{
     if(!newRoomID || !username){
       setIsShow(true)
+      toast.error("RoomId & username is required")
       return;
     }
 navigate(`/editor/${newRoomID}`,
@@ -30,7 +31,6 @@ navigate(`/editor/${newRoomID}`,
   }
 
   const handleEnter=(e)=>{
-    console.log(e.key)
 if(e.key==="Enter"){
   handleJoin();
 }
