@@ -3,12 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/theme/dracula.css';
 import 'codemirror/addon/edit/closetag';
+import 'codemirror/addon/edit/closebrackets'
 import 'codemirror/addon/edit/matchtags';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
+
 import CodeMirror from 'codemirror';
 import ACTIONS from '../Action';
-import styled from 'styled-components';
 
 const MainEditor = ({ socketRef, roomId, onCodeChange }) => {
 
@@ -29,6 +30,7 @@ const MainEditor = ({ socketRef, roomId, onCodeChange }) => {
 
               editorRef.current.on('change', (instance, changes) => {
                 const { origin } = changes;
+                console.log("origin---",origin)
                 const code = instance.getValue();
                 onCodeChange(code);
                 if (origin !== 'setValue') {
