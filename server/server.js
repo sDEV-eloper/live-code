@@ -54,5 +54,5 @@ socket.on(ACTIONS.SYNC_CODE, ({socketId, code})=>[
     })
 })
 
-const PORT=process.env.PORT || 5000
+const PORT=process.env.PORT || 8080
 server.listen(PORT, ()=> console.log("Running on port", PORT))
