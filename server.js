@@ -60,5 +60,5 @@ socket.on(ACTIONS.SYNC_CODE, ({socketId, code})=>[
     })
 })
 
-const PORT=process.env.PORT || 5000
-server.listen(PORT, ()=> console.log("Running on port", PORT))
+const PORT=process.env.PORT || 0
+server.listen(PORT, () => console.log(`Running on port ${server.address().port}`));
