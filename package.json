@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start:front": "react-scripts start",
-    "start":"yarn build && yarn server:prod",
+    "start": "yarn build && yarn server:prod",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "server:dev": "nodemon server.js",
@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "nodemon": "^3.0.1",
     "tailwindcss": "^3.3.3"
   }
 }

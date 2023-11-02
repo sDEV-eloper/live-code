@@ -7,6 +7,7 @@ const path = require('path');
 
 const server=http.createServer(app)
 const io=new Server(server)
+require('dotenv').config();
 app.use(express.static('build'));
 app.use((req, res, next)=>{
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
@@ -60,5 +61,5 @@ socket.on(ACTIONS.SYNC_CODE, ({socketId, code})=>[
     })
 })
 
-const PORT=process.env.PORT || 0
-server.listen(PORT, () => console.log(`Running on port ${server.address().port}`));
+const PORT=process.env.PORT 
+server.listen(PORT, () => console.log(`Running on port ${PORT}`));
