@@ -2,12 +2,11 @@ const express = require('express')
 const app= express()
 const http = require('http');
 const {Server} = require('socket.io');
-const ACTIONS = require('../client/src/Action');
+const ACTIONS = require('./src/Action');
 const path = require('path');
 
 const server=http.createServer(app)
 const io=new Server(server)
-g
 app.use(express.static('build'));
 app.use((req, res, next)=>{
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
@@ -61,5 +60,5 @@ socket.on(ACTIONS.SYNC_CODE, ({socketId, code})=>[
     })
 })
 
-const PORT=process.env.PORT || 8080
+const PORT=process.env.PORT || 5000
 server.listen(PORT, ()=> console.log("Running on port", PORT))
