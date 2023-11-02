@@ -32,7 +32,6 @@ const Editor = () => {
       socketRef.current.on("connect_failed", (err) => handleErrors(err));
 
       function handleErrors(e) {
-        console.log("socket error", e);
         toast.error("socket connection failed, try again later.");
         reactNavigator("/");
       }
@@ -71,11 +70,11 @@ const Editor = () => {
       );
   };
   init();
-  // return () => {
-  //     socketRef.current.disconnect();
-  //     socketRef.current.off(ACTIONS.JOINED);
-  //     socketRef.current.off(ACTIONS.DISCONNECTED);
-  // };
+  return () => {
+      socketRef.current.disconnect();
+      socketRef.current.off(ACTIONS.JOINED);
+      socketRef.current.off(ACTIONS.DISCONNECTED);
+  };
   }, []);
 
   async function copyRoomId() {
